@@ -1,2 +1,14 @@
 O que é um container?
-Isolamento de recursos.
+Isolamento de recursos. 
+O container não tem um Kernel próprio, ele usa o kernel do host hospedeiro. 
+
+Orquestrador de containers:
+Não podemos ter apenas um container em ambiente produtivo, é necessário ter mais réplicas desses containers, daí vem a necessidade do orquestrador para conseguir colocar um serviço
+apontando para o POD, conseguir colocar ordem na casa organizando todas as réplicas dos containers.
+
+90% dos orquestradores de containers hoje em dia refere-se ao Kubernetes, é o mais popular, tem também o Nômade da hashcorp.
+
+Kubernetes foi iniciado no Google e lá pra 2014/15 o Google resolveu deixar público para a comunidade também contribuir. O Google doou o projeto para a Linux Foundation.
+CNCF ( cloud native ... )
+
+
