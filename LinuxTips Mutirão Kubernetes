@@ -20,6 +20,15 @@ Cada Nó (node) tem o seu papel, parte vai ser para se a saúde do cluster está
 tudo isso normalmente está no control-plane. 
 Geralmente não se executa containers nos nodes control-plane. Os containers são normalmente executado nos workers. Control-plane fica só para a saúde do cluster.
 
+Tem os K8S gerenciados, Oracle, Azure, AWS, etc, "essa parte do control plane eu não quero cuidar, eu quero cuidar dos workers", quem cuida disso é a própria cloud e eu 
+me preocupo só com os workers.
+Para criar esse cluster gerenciado pode ser via terraform, na console da cloud. 
+
+K8S Vanilla - Diretamente do site do Kubernetes, normalmente será utilizado uma ferramenta chamada kubeadm. Que é criar o cluster na mão.
+
+OKD - Open Kubernetes Distribution, é uma distribuição do Kubernetes, como se fosse uma distribuição Linux.
+
+
 
 
 
