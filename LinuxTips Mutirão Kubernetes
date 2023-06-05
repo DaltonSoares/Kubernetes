@@ -9,6 +9,17 @@ apontando para o POD, conseguir colocar ordem na casa organizando todas as répl
 90% dos orquestradores de containers hoje em dia refere-se ao Kubernetes, é o mais popular, tem também o Nômade da hashcorp.
 
 Kubernetes foi iniciado no Google e lá pra 2014/15 o Google resolveu deixar público para a comunidade também contribuir. O Google doou o projeto para a Linux Foundation.
-CNCF ( cloud native ... )
+CNCF ( cloud native ... ) Vale a pena acreditar no Kubernetes pois quem está "por trás" dele é a Linux Foundation, orgão sério, o Docker Swarm por exemplo foi deixado de lado.
+
+É importante também conhecer Linux pois a maioria dos cluster Kubernetes rodam em Linux.
+
+Qual a função do Kubernetes?
+Colocar o DNS nos PODs / serviços, regra de como os serviços vão se comunicar, tudo está centralizado no K8S.
+
+Cada Nó (node) tem o seu papel, parte vai ser para se a saúde do cluster está tudo OK. São os CONTROL-PLANE. Ele é como se fosse o cérebro do cluster, api-server, etc, 
+tudo isso normalmente está no control-plane. 
+Geralmente não se executa containers nos nodes control-plane. Os containers são normalmente executado nos workers. Control-plane fica só para a saúde do cluster.
+
+
 
 
