@@ -1,3 +1,5 @@
+INTRODUÇÃO
+
 O que é um container?
 Isolamento de recursos. 
 O container não tem um Kernel próprio, ele usa o kernel do host hospedeiro. 
@@ -27,6 +29,46 @@ Para criar esse cluster gerenciado pode ser via terraform, na console da cloud.
 K8S Vanilla - Diretamente do site do Kubernetes, normalmente será utilizado uma ferramenta chamada kubeadm. Que é criar o cluster na mão.
 
 OKD - Open Kubernetes Distribution, é uma distribuição do Kubernetes, como se fosse uma distribuição Linux.
+
+Kubernetes temos também o desenvolvimento local, o minikube (em cima de máquinas virtuais) e o kind (funciona em cima do Docker).
+Primeira dica, instalem o kind ou minikube.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.youtube.com/redirect?event=live_chat&redir_token=QUFFLUhqa1BzOWJWMDJDZDRuSXAxUWNrNVZmbExOenRuQXxBQ3Jtc0ttOEl6eFprNWoxS0FQVVhKc0FmZEVqVTVFZTFWQ3ZkM18xR0lJLVAwMlhTTTVvdjd4MThhNm5NSGxtLXJRWkZRY2VXSXlnUktYZ3dLUkp5a0Rkc3BBeTZlX2RncTFEemJObm1BSWZNVklRZnQ3b2h1Yw&q=https%3A%2F%2Fplay.instruqt.com%2Flinuxtips%2Finvite%2Fzrm7jsac3ybz
+https://play.instruqt.com/linuxtips/invite/zrm7jsac3ybz/tracks/mutiro-kubernetes---primeiro-dia
+
+
+https://github.com/badtuxx/CertifiedContainersExpert/tree/main/DescomplicandoKubernetes/day-1#kind
+
+Não esqueça que o kubectl é o seu principal aliado nessa jornada! Mantenha-o sempre por perto!
+kubectl é o responsável por administrar o cluster via linha de comando.
+https://www.youtube.com/redirect?event=live_chat&redir_token=QUFFLUhqbUl3VUZyZXpmM0h6RERaVWVQU01uaWMwN1g5QXxBQ3Jtc0tsVXp6X1VHMk9xVnEzR1FWYUNlU2Q3cFdMOF93T3dqa3hvbzVkTnJZTWhrM3RDa1hUVXNLbUxuNWNqaktsbnNVRGJNbGJmX29RRW1ocnRvTWZILVg3bnB5UFhCNHN0YUFmYmsyWkVnbEpaMlNoakRvTQ&q=https%3A%2F%2Fgithub.com%2Fbadtuxx%2FCertifiedContainersExpert%2Ftree%2Fmain%2FDescomplicandoKubernetes%2Fday-1%23instala%25C3%25A7%25C3%25A3o-do-kubectl-no-gnulinux
+https://www.youtube.com/redirect?event=live_chat&redir_token=QUFFLUhqa0V2eDd3REN3NmM5dWJDYk01dGg2Uk8wUUhPUXxBQ3Jtc0trcTZPNFBjS1oyV1hKdm5HcEFpelhiTXB6VDQ4SFJLMUVxT0s5VG9qMHpYckUzSDZSMzR6bXpmOUxyTFlBU1ZWc3UxMlo2b1dpZ2Y1RVkxdkNPRC00Q3ZzX2s5YzhnU2JWS2ljblJuV0xaZTVjN1Z4bw&q=https%3A%2F%2Fgithub.com%2Fbadtuxx%2FCertifiedContainersExpert%2Ftree%2Fmain%2FDescomplicandoKubernetes%2Fday-1%23instala%25C3%25A7%25C3%25A3o-do-kubectl-no-gnulinux
+
+O kubectl fala com a API para saber o que vai ser feito.
+
+curl -fsSL https://get.docker.com | bash
+curl -fsSL https://get.docker.com | bash
+kubectl cluster-info
+
+No kubernetes a menor unidade é o POD, o kubernetes não vai tratar containers, vai tratar PODs.
+Namespace é uma forma de agrupar, kube-system é o namespace onde está o control-plane.
+
+root@linuxtips-server:~# kubectl get pods -A -o wide
+kubectl run nginx --image nginx
+
+pod/nginx created
+
+kubectl exec -ti nginx -- bash
+
+
+
+
+
+
+
+
+
 
 
 
