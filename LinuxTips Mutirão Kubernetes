@@ -1,3 +1,6 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DIA 1
 INTRODUÇÃO
 
 O que é um container?
@@ -60,6 +63,55 @@ kubectl run nginx --image nginx
 pod/nginx created
 
 kubectl exec -ti nginx -- bash
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DIA 2
+A menor unidade no Kubernetes é o POD, e dentro dele pode ter 1 ou mais containers. Esses dois ou mais containers que estiverem rodando dentro do mesmo pod vai
+ser compartilhado, toda infra, etc.
+
+kubectl run nginx --image nginx - Dessa maneira ele faz o download dessa imagem lá no dockerhub, como não passamos a versão da imagem foi feito o download da última versão.
+kubectl describe pod nginx - Describe traz mais informações sobre o POD.
+
+Um service serve para expor um deployment, pod, statefulset para fora do cluster.
+
+clusterIp - Todo mundo que está dentro do cluster consegue acessar.
+nodePort - Vai pegar uma porta alta e aí quem vai acessar esse serviço precisa colocar ip:porta
+loadBalancer - Se está rodando dentro de alguma cloud, quando utilizo um serviço do tipo LoadBalancer, o K8S fala com a Cloud e vai criar esse LoadBalancer na Cloud
+e as pessoas conseguem acessar.
+
+kubectl run nginx --image nginx --port  80
+kubectl expose pod - dessa maneira criou um service, mas eu não escolhi o tipo.
+kubectl get services
+NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+nginx        ClusterIP   10.43.27.227   <none>        80/TCP    21s
+
+
+kubectl expose pod nginx --type NodePort
+kubectl expose pod nginx --type LoadBalancer
+
+Quando você quer acessar um servico nós podemos usar o port foward.
+
+kubectl port-forward svc/nginx 8080:80 - dar uma lida sobre kubectl port-foward para entender um pouco mais.
+
+DEPLOYMENT
+Quando estou utilizando um deployment vou poder ter uma ou mais réplicas do meu componente, garantindo alta disponibilidade.
+Caso um dos PODs caia, o kubernetes vai tirar esse POD do jogo e subir um novo.
+
+SERVIÇO e embaixo dele terão as réplicas dos PODs.
+
+kubectl create deployment giropops --image nginx --port 80 --replicas 3
+deployment.apps/giropops created
+
+kubectl scale deployment giropops --replicas 5
+deployment.apps/giropops scaled
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 
 
