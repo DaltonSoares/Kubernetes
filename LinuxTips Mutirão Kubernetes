@@ -109,7 +109,45 @@ deployment.apps/giropops scaled
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
+DIA 3
+labels são muito importantes, para utilizar em conjunto com os services.
 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: giropops
+  namespace: default
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: girus
+    image: nginx
+    ports:
+    - containerPort: 80
+    resources:
+      limits:
+        cpu: 0.5
+        memory: 128Mi
+      requests:
+        cpu: 0.25
+        memory: 64Mi
+
+kubectl apply -f meu-pod.yaml
+
+resources:
+  limits: MÁXIMO
+  requests: É COMO ELE VAI SUBIR.
+  
+  Posso instalar o stress para fazer os testes, isso utilizando dentro do exec no pod.
+  k exec -ti giropops -- bash
+  
+  k create deployment strigus --image nginx --replicas 3 dry-run=client -o yaml > mey-deployment.yaml
+  da maneira acima vai criar um arquivo yaml pra mim com a definição.
+  
+  kubectl top
+  
+  https://github.com/kelseyhightower/kubernetes-the-hard-way
 
 
 
