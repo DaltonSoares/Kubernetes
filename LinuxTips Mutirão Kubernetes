@@ -131,7 +131,7 @@ spec:
         memory: 128Mi
       requests:
         cpu: 0.25
-        memory: 64Mi
+        memory: 64Mii
 
 kubectl apply -f meu-pod.yaml
 
@@ -149,6 +149,86 @@ resources:
   
   https://github.com/kelseyhightower/kubernetes-the-hard-way
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+O nosso objetivo aqui é fazer a instalação do Nginx!
+
+Atenção! 📢
+Corrija todos os erros encontrados e realize o deploy do Nginx utilizando o arquivo deployment.yaml.
+
+Tarefas
+Utilize o arquivo /root/deployment.yaml para realizar o deploy do nosso Deployment;
+Corrija todos os erros;
+Configure o limite de utilização de recursos da seguinte maneira:
+Requests:
+64Mi de Memória;
+0.5 de CPU;
+Limits:
+128 Mi de Memória;
+0.7 de CPU;
+Use a estratégia de atualização do Deployment que atualiza todos os pods de uma vez;
+A versão do Nginx deve ser a 1.16.0.
+
+ERRADO PARA CORRIGIR
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  label:
+    app: nginx-girus
+    opa: sensacional-juvenal
+name: nginx-girus
+specs:
+  replicas: 5
+    selector:
+      matchLabels:
+      app: nginx-girus
+  strategies:
+    type: recreate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 2
+  strategies: {}
+  replicas: 2
+  template:
+    metadata:
+    label:
+      app: nginx
+    specs:
+      containers:
+      - image: nginx 1.15.0
+        name: nginx
+        resource: {}
+        
+FUNCIONOU
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-girus
+  labels:
+    app: nginx-girus
+    opa: sensacional-juvenal
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx-girus
+  template:
+    metadata:
+      labels:
+        app: nginx-girus
+    spec:
+      containers:
+        - name: nginx
+          image: nginx 1.16.0
+          ports:
+          - containerPort: 80
+          resources:
+            requests:
+              cpu: 0.1
+              memory: 64Mi
+            limits:
+              cpu: 0.3
+              memory: 128Mi
 
 
 
